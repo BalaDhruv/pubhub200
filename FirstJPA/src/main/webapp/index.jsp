@@ -1,18 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html >
+<!DOCTYPE html>
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Index Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Login</title>
+
 </head>
 <body>
-<center>
-<form action="/auth/login" method="post">
-<input type="email" name="email" placeholder="Enter Your Email Id"><br><br>
-<input type="password" name="password" placeholder="Enter Your Password"><br><br>
-<input type="submit">
-</form>
-</center>
+
+	<%@ include file="../../layout/header.jsp"%>
+	<% out.println(session.getAttribute("status"));%>
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-md-4">
+
+				<div class="portlet-title">
+					<div class="page-header">
+						<h3>Login</h3>
+					</div>
+				</div>
+				<div class="portlet-body">
+					<form action="/auth/login" method="POST">
+						<div class="form-group">
+							<label for="userName">EmailId :</label> <input type="email"
+								class="form-control" name="email" placeholder="Enter emailId"
+								autofocus="autofocus" required="required" id="email"
+								value="test@gmail.com" />
+						</div>
+
+						<div class="form-group">
+							<label for="password">Password :</label> <input type="password"
+								class="form-control" name="password"
+								placeholder="Enter Password" required="required" id="password"
+								value="test@123" />
+						</div>
+						<div class="form-group">
+							<button type="submit" name="add" class="btn btn-success"
+								id="addLoginBtn">SIGN IN</button>
+
+							<a href="auth/register" class='btn btn-primary'>SIGN UP</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
+
 </html>
